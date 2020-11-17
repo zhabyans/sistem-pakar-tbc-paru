@@ -7,7 +7,8 @@ Aplikasi untuk mendeteksi penyakit paru sejak dini menggunakan Metode Certainty 
 Use the package manager [npm](https://nodejs.org/en/) to install npm.
 
 ```bash
-npm install -g @ionic/cli
+npm install
+ionic serve
 ```
 
 ## Contributing
