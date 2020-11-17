@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Diagnosis</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="inputForm">
+   <ion-list>
+    <ion-item>
+      <ion-label color="dark">Apakah Anda demam di malam hari?</ion-label>
+      <ion-select #demam interface="popover" [formControl]="inputForm.controls['1']">
+        <ion-option value="0">Tidak Pernah</ion-option>
+        <ion-option value="0.2">Jarang</ion-option>
+        <ion-option value="0.4">Kadang-kadang</ion-option>
+        <ion-option value="0.6">Sering</ion-option>
+        <ion-option value="0.8">Sangat Sering</ion-option>
+        <ion-option value="1">Setiap Malam</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">Apakah Anda berkeringat di malam hari?</ion-label>
+      <ion-select #berkeringat interface="popover" [formControl]="inputForm.controls['2']">
+        <ion-option value="0">Tidak Pernah</ion-option>
+        <ion-option value="0.2">Jarang</ion-option>
+        <ion-option value="0.4">Kadang-kadang</ion-option>
+        <ion-option value="0.6">Sering</ion-option>
+        <ion-option value="0.8">Sangat Sering</ion-option>
+        <ion-option value="1">Setiap Malam</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">Apakah Anda mudah merasa lelah?</ion-label>
+      <ion-select #lelah interface="popover" [formControl]="inputForm.controls['3']">
+        <ion-option value="0">Tidak</ion-option>
+        <ion-option value="0.2">Jarang</ion-option>
+        <ion-option value="0.4">Kadang-kadang</ion-option>
+        <ion-option value="0.6">Sering</ion-option>
+        <ion-option value="0.8">Sangat Sering</ion-option>
+        <ion-option value="1">Selalu</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">Apakah nafsu makan Anda menurun?</ion-label>
+      <ion-select #nafsuMakan interface="popover" [formControl]="inputForm.controls['4']">
+        <ion-option value="0">Tidak</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label color="dark">Apakah berat badan Anda menurun?</ion-label>
+      <ion-select #beratBadan interface="popover" [formControl]="inputForm.controls['5']">
+        <ion-option value="0">Tidak</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  
+  <button full [disabled]="!inputForm.valid" ion-button (click)="goTos(demam.value,berkeringat.value,lelah.value,nafsuMakan.value,beratBadan.value)">Proses
+    Data</button>
+</form>
+</ion-content>

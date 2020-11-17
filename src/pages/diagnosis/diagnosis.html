@@ -1,0 +1,252 @@
+<!--
+  Generated template for the DiagnosisPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Diagnosis</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="inputForm">
+    <ion-label>Berapa Lama Anda Batuk?</ion-label>
+    <ion-item>
+      <ion-input #lamaBatuk type="tel" maxlength="2" placeholder="dalam hari" [formControl]="inputForm.controls['lamaBatuk']"></ion-input>
+    </ion-item>
+    <br>
+    <ion-label>Berapa Usia Anda?</ion-label>
+    <ion-item>
+      <ion-input #usia type="tel" maxlength="2" placeholder="12 tahun keatas" [formControl]="inputForm.controls['usia']"></ion-input>
+    </ion-item>
+    <button full ion-button (click)="goTo(usia.value,lamaBatuk.value)" [disabled]="!inputForm.valid">Selanjutnya</button>
+  </form>
+
+  <!-- <ion-list # *ngFor="let data of gejala_cf | async; let i = index; trackBy:trackByIndex;" >
+  <ion-item> 
+		<ion-label>Apakah Anda {{data.nama_gejala}} ?</ion-label>
+		<ion-select [(ngModel)]="gejala_cf[i]" interface="popover">
+			<ion-option value="[{{i}}][0]">Sangat Tidak Yakin</ion-option>
+			<ion-option value="[{{i}}][0.2]">Tidak Yakin</ion-option>
+			<ion-option value="[{{i}}][0.4]">Sedikit Yakin</ion-option>
+			<ion-option value="[{{i}}][0.6]">Cukup Yakin</ion-option>
+			<ion-option value="[{{i}}][0.8]">Yakin</ion-option>
+			<ion-option value="[{{i}}][1]">Sangat Yakin</ion-option>
+		</ion-select>
+  </ion-item>
+</ion-list> -->
+  <!-- <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda batuk berdahak disertai bau busuk dan berwarna?</ion-label>
+      <ion-select #batukBau interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda batuk disertai darah?</ion-label>
+      <ion-select #batukDarah interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda ketika batuk disertai rasa mual dan muntah?</ion-label>
+      <ion-select #batukMual interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda sesak napas?</ion-label>
+      <ion-select #sesakNapas interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda nyeri di bagian dada?</ion-label>
+      <ion-select #nyeriDada interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda demam di malam hari?</ion-label>
+      <ion-select #demam interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda berkeringat di malam hari?</ion-label>
+      <ion-select #berkeringat interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah badan Anda menggigil?</ion-label>
+      <ion-select #menggigil interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah Anda mudah merasa lelah?</ion-label>
+      <ion-select #lelah interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah nafsu makan Anda menurun?</ion-label>
+      <ion-select #nafsuMakan interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Apakah berat badan Anda menurun?</ion-label>
+      <ion-select #beratBadan interface="popover">
+        <ion-option value="0">Sangat Tidak Yakin</ion-option>
+        <ion-option value="0.2">Tidak Yakin</ion-option>
+        <ion-option value="0.4">Sedikit Yakin</ion-option>
+        <ion-option value="0.6">Cukup Yakin</ion-option>
+        <ion-option value="0.8">Yakin</ion-option>
+        <ion-option value="1">Sangat Yakin</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  
+  <button ion-button (click)="goTos(batukBau.value,batukDarah.value,batukMual.value,
+sesakNapas.value,nyeriDada.value,demam.value,berkeringat.value,menggigil.value,
+lelah.value,nafsuMakan.value,beratBadan.value)">Proses
+    Data</button> -->
+
+  <!-- <ion-list  *ngFor="let data of gejala_cf | async;let i = index;" radio-group>
+
+    <hr><hr>
+
+    <ion-item>
+      <ion-label>Apakah Anda {{data.nama_gejala}}?</ion-label>
+    </ion-item>
+    
+    <ion-grid>
+      <ion-row>
+        <ion-col >
+          <ion-item >
+            <ion-label>Sangat Tidak Yakin</ion-label>
+            <ion-radio value="[{{i}}][0]" ></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+          <ion-item>
+            <ion-label>Tidak Yakin</ion-label>
+            <ion-radio  value="[{{i}}][0.2]"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Sedikit Yakin</ion-label>
+            <ion-radio value="[{{i}}][0.4]"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+          <ion-item>
+            <ion-label>Cukup Yakin</ion-label>
+            <ion-radio value="[{{i}}][0.6]"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+          <ion-item>
+            <ion-label>Yakin</ion-label>
+            <ion-radio value="[{{i}}][0.8]"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col >
+          <ion-item>
+            <ion-label>Sangat Yakin</ion-label>
+            <ion-radio value="[{{i}}][1]"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </ion-list> -->
+</ion-content>

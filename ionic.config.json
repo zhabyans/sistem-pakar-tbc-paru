@@ -1,0 +1,7 @@
+{
+  "name": "KabarKampus",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
